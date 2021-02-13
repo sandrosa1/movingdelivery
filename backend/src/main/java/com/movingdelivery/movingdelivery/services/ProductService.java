@@ -24,6 +24,6 @@ public class ProductService {
 		List<Product> list = repository.findAllByOrderByNameAsc();
 		return list.stream().map(x -> new ProductDTO(x)).collect(Collectors.toList());
 	}
-	
+
 
 }
