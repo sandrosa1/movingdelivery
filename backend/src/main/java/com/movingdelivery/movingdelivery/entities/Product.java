@@ -2,31 +2,40 @@ package com.movingdelivery.movingdelivery.entities;
 
 import java.io.Serializable;
 
-// Serializable e um bom padrão para transformar objetos em sequencia de bytes
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+// Serializable e um bom padrão para transformar objetos em sequencia de bytes
+@Entity
+@Table(name = "tb_product")
 public class Product implements Serializable {
 	
 
 	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
 	private Double price;
 	private String description;
 	private Integer amount;
-	private String imageRri;
+	private String image_Uri;
 	
 	public Product() {
 		
 	}
 
-	public Product(Long id, String name, Double price, String description, Integer amount, String imageRri) {
+	public Product(Long id, String name, Double price, String description, Integer amount, String image_Uri) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.price = price;
 		this.description = description;
 		this.amount = amount;
-		this.imageRri = imageRri;
+		this.image_Uri = image_Uri;
 	}
 
 	public Long getId() {
@@ -69,12 +78,12 @@ public class Product implements Serializable {
 		this.amount = amount;
 	}
 
-	public String getImageRri() {
-		return imageRri;
+	public String getImageUri() {
+		return image_Uri;
 	}
 
-	public void setImageRri(String imageRri) {
-		this.imageRri = imageRri;
+	public void setImageUri(String image_Uri) {
+		this.image_Uri = image_Uri;
 	}
 
 	@Override
@@ -102,7 +111,4 @@ public class Product implements Serializable {
 		return true;
 	}
 	
-	
-	
-
 }
